@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+</head>
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+                
+      <section x-data="{ mobileNavOpen: false, activeSlide: 1, slideCount: 3 }" class="bg-gray-100 relative">
+          <div class="absolute top-0 bottom-0 left-0 bg-white w-1/3 hidden lg:block"></div>
+          <div class="container mx-auto px-4 relative z-50">
+              <div class="flex items-center justify-between py-5 -px-4">
+                  <div class="w-auto">
+                      <div class="flex flex-wrap items-center">
+                      <div class="w-auto mr-14">
+                          <a href="#">
+                          <img src="cronos-assets/logos/cronos-logo.svg" alt="">
+                          </a>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="w-auto">
+                      <div class="hidden lg:flex flex-wrap items-center">
+                          <ul class="flex items-center mr-16">
+                              <li class="mr-9 text-sm hover:text-gray-700"><a href="#">About</a></li>
+                              <li class="mr-9 text-sm hover:text-gray-700"><a href="#">Company</a></li>
+                              <li class="text-sm hover:text-gray-700"><a href="#">Services</a></li>
+                          </ul>
+                          <div class="flex items-center">
+                              <a class="px-6 py-3 text-sm font-bold text-yellow-900 hover:underline mr-2" href="#">Sign In</a>
+                              <a class="px-6 py-3 bg-yellow-500 text-sm text-yellow-900 font-bold hover:bg-yellow-400 focus:ring focus:ring-yellow-200 transition duration-200" href="#">Sign Up</a>
+                          </div>
+                      </div>
+                      <div class="lg:hidden flex items-center">
+                          <button x-on:click="mobileNavOpen = !mobileNavOpen">
+                              <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7C3.22386 7 3 6.77614 3 6.5C3 6.22386 3.22386 6 3.5 6H20.5C20.7761 6 21 6.22386 21 6.5C21 6.77614 20.7761 7 20.5 7H3.5ZM3.5 12C3.22386 12 3 11.7761 3 11.5C3 11.2239 3.22386 11 3.5 11H20.5C20.7761 11 21 11.2239 21 11.5C21 11.7761 20.7761 12 20.5 12H3.5ZM3 16.5C3 16.7761 3.22386 17 3.5 17H20.5C20.7761 17 21 16.7761 21 16.5C21 16.2239 20.7761 16 20.5 16H3.5C3.22386 16 3 16.2239 3 16.5Z" fill="#006251"></path>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <div :class="{'block': mobileNavOpen, 'hidden': !mobileNavOpen}" class="hidden fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50">
+                <div x-on:click="mobileNavOpen = !mobileNavOpen" class="fixed inset-0 bg-gray-800 opacity-80"></div>
+                <nav class="relative z-10 px-9 pt-8 bg-white h-full overflow-y-auto">
+                  <div class="flex flex-wrap h-full">
+                    <div class="w-full">
+                      <div class="flex items-center justify-between -m-2 mb-10">
+                        <div class="w-auto p-2">
+                          <a class="inline-block" href="#">
+                            <img src="cronos-assets/logos/cronos-logo.svg" alt="">
+                          </a>
+                        </div>
+                        <div class="w-auto p-2">
+                          <button x-on:click="mobileNavOpen = !mobileNavOpen">
+                              <svg style="width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="flex flex-col w-full">
+                        <ul>
+                          <li class="mb-6"><a class="text-sm hover:text-gray-700" href="#">About</a></li>
+                          <li class="mb-6"><a class="text-sm hover:text-gray-700" href="#">Company</a></li>
+                          <li class="mb-6"><a class="text-sm hover:text-gray-700" href="#">Services</a></li>
+                          <li><a class="text-sm hover:text-gray-700" href="#">Testimonials</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="flex flex-col justify-end w-full pb-8">
+                      <div class="flex flex-wrap">
+                        <div class="w-full">
+                          <div class="block">
+                              <a class="px-6 py-3 block text-center bg-green-500 text-white text-sm font-bold w-full mb-6 hover:bg-green-600 focus:ring focus:ring-green-300 transition duration-200" href="#">Try 14 Days Free Trial</a>
+                              <p class="text-sm mb-4 text-center text-gray-500">© 2021 All rights reserved.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+          </div>
+          <div class="container mx-auto p-4 mt-8 pb-16">
+              <div class="flex flex-wrap items-center -m-4">
+                  <div class="w-full lg:w-1/2 p-4">
+                      <div class="relative max-w-md mb-16">
+                          <div class="mt-6 -mr-6 ml-6 -mb-6 absolute inset-0 bg-green-500"></div>
+                          <div class="overflow-hidden">
+                              <div :style="'transform: translateX(-' + (activeSlide - 1) * 100 + '%)'" class="flex -mx-4 transition-transform duration-500" style="transform: translateX(-0%)">
+                                  <div class="flex-shrink-0 px-4 w-full">
+                                      <img class="relative object-cover" style="height: 564px" src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                                  </div>
+                                  <div class="flex-shrink-0 px-4 w-full">
+                                      <img class="relative object-cover" style="height: 564px" src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                                  </div>
+                                  <div class="flex-shrink-0 px-4 w-full">
+                                      <img class="relative object-cover" style="height: 564px" src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="absolute bottom-0 right-0 flex">
+                              <button x-on:click="activeSlide = activeSlide &gt; 1 ? activeSlide - 1 : slideCount" class="w-16 h-16 flex items-center justify-center bg-yellow-500 hover:bg-yellow-400 transition duration-200">
+                                  <svg style="width: 12px; height: 9px;" width="12" height="9" viewbox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.70711 4H11.5C11.7761 4 12 4.22386 12 4.5C12 4.77614 11.7761 5 11.5 5H1.70711L4.85355 8.14645C5.04882 8.34171 5.04882 8.65829 4.85355 8.85355C4.65829 9.04882 4.34171 9.04882 4.14645 8.85355L0.146447 4.85355C-0.0488155 4.65829 -0.0488155 4.34171 0.146447 4.14645L4.14645 0.146447C4.34171 -0.0488155 4.65829 -0.0488155 4.85355 0.146447C5.04882 0.341709 5.04882 0.658291 4.85355 0.853553L1.70711 4Z" fill="#322C1C"></path>
+                                  </svg>
+                              </button>
+                              <button x-on:click="activeSlide = activeSlide &lt; slideCount ? activeSlide + 1 : 1" class="w-16 h-16 flex items-center justify-center bg-yellow-500 hover:bg-yellow-400 transition duration-200">
+                                  <svg style="width: 12px; height: 9px;" width="12" height="9" viewbox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.2929 5H0.5C0.223858 5 0 4.77614 0 4.5C0 4.22386 0.223858 4 0.5 4H10.2929L7.14645 0.853553C6.95118 0.658291 6.95118 0.341709 7.14645 0.146447C7.34171 -0.0488155 7.65829 -0.0488155 7.85355 0.146447L11.8536 4.14645C12.0488 4.34171 12.0488 4.65829 11.8536 4.85355L7.85355 8.85355C7.65829 9.04882 7.34171 9.04882 7.14645 8.85355C6.95118 8.65829 6.95118 8.34171 7.14645 8.14645L10.2929 5Z" fill="#322C1C"></path>
+                                  </svg>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full lg:w-1/2 p-4">
+                      <h1 class="font-heading text-green-500 text-4xl md:text-5xl font-bold mb-5 max-w-xs md:max-w-md">Take care of your performance every day.</h1>
+                      <p class="text-gray-600 mb-6 max-w-lg">Build a well-presented brand that everyone will love. Take care to develop resources continually and integrity them with previous projects.</p>
+                      <div class="flex flex-wrap -m-2 mb-20">
+                          <div class="p-2 w-full sm:w-auto">
+                              <a class="px-6 py-3 block text-center bg-green-500 text-white text-sm font-bold hover:bg-green-600 focus:ring focus:ring-green-300 transition duration-200" href="#">Track your performance</a>
+                          </div>
+                          <div class="p-2 w-full sm:w-auto">
+                              <a class="px-6 py-3 block text-center bg-orange-900 text-white text-sm font-bold hover:bg-orange-800 focus:ring focus:ring-orange-700 transition duration-200" href="#">Learn More</a>
+                          </div>
+                      </div>
+                      <div class="flex flex-wrap -m-4">
+                          <div class="w-full sm:w-1/3 lg:w-1/6 p-4">
+                              <img class="h-6 mx-auto" src="cronos-assets/logos/brands/slack-color.svg" alt="">
+                          </div>
+                          <div class="w-full sm:w-1/3 lg:w-1/6 p-4">
+                              <img class="h-6 mx-auto" src="cronos-assets/logos/brands/dropbox-color.svg" alt="">
+                          </div>
+                          <div class="w-full sm:w-1/3 lg:w-1/6 p-4">
+                              <img class="h-6 mx-auto" src="cronos-assets/logos/brands/spotify-color.svg" alt="">
+                          </div>
+                          <div class="w-full sm:w-1/3 lg:w-1/6 p-4">
+                              <img class="h-6 mx-auto" src="cronos-assets/logos/brands/stripe-color.svg" alt="">
+                          </div>
+                          <div class="w-full sm:w-1/3 lg:w-1/6 p-4">
+                              <img class="h-6 mx-auto" src="cronos-assets/logos/brands/netflix-color.svg" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+                
+      <section class="py-20 bg-gray-100">
+          <div class="container mx-auto px-4">
+              <div class="flex flex-wrap">
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 md:border-r border-b border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M14 40H40" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M8 40V34L34 8L40 14L14 40H8Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M34 20L28 14" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                          </span>
+                          <h2 class="text-xl text-center mb-4">Change of access</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 lg:border-r border-b border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M24 44C24 44 40 36 40 24V10L24 4L8 10V24C8 36 24 44 24 44Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M16 23L22 29L34 17" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>    
+                          </span>
+                          <h2 class="text-xl text-center mb-4">Security in savings</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 border-b md:border-r lg:border-r-0 border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M24 30C27.866 30 31 26.866 31 23C31 19.134 27.866 16 24 16C20.134 16 17 19.134 17 23C17 26.866 20.134 30 24 30Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M42 23.9999C42.006 28.6858 40.1784 33.1881 36.908 36.5439C35.2324 38.2727 33.2261 39.6466 31.0086 40.5839C28.791 41.5213 26.4075 42.0028 24 41.9999C21.5925 42.0028 19.209 41.5213 16.9914 40.5839C14.7739 39.6466 12.7676 38.2727 11.092 36.5439C9.03644 34.4289 7.53208 31.8412 6.71122 29.0085C5.89036 26.1757 5.77815 23.1846 6.38447 20.2982C6.99079 17.4119 8.29705 14.7188 10.1884 12.4557C12.0797 10.1927 14.4981 8.42905 17.2309 7.31994C19.9638 6.21082 22.9273 5.79021 25.8608 6.0951C28.7943 6.39999 31.608 7.42105 34.0543 9.06846C36.5006 10.7159 38.5047 12.9392 39.8902 15.5428C41.2757 18.1464 42.0002 21.0506 42 23.9999V23.9999Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M11.092 36.544C12.5768 34.5144 14.5197 32.8639 16.7627 31.7268C19.0056 30.5897 21.4853 29.9981 24 30C26.5148 29.9981 28.9945 30.5897 31.2374 31.7268C33.4804 32.8639 35.4233 34.5144 36.908 36.544" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                          </span>
+                          <h2 class="text-xl text-center mb-4">List of regular users</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 md:border-r border-b border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M8 14L24 6L40 14V34L24 42L8 34V14Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M30 18L18 30" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M18 18L30 30" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                          </span>
+                          <h2 class="text-xl text-center mb-4">No errors</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 border-b md:border-r border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M38 14C39.8965 16.9689 40.7142 20.4997 40.316 24V26C40.3165 28.1166 40.899 30.1923 42 32" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M16 22C16 19.8783 16.8429 17.8434 18.3431 16.3431C19.8434 14.8429 21.8783 14 24 14C26.1217 14 28.1566 14.8429 29.6569 16.3431C31.1571 17.8434 32 19.8783 32 22V24C32 28.3274 33.4036 32.5381 36 36" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M24 22V26C23.992 31.72 26.086 37.302 30 42" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M16 30C16.544 34.18 17.898 38.24 20 42" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M9.82176 38C8.4738 33.4672 7.86665 28.7464 8.02376 24.02V22.02C8.01771 19.9182 8.42649 17.8359 9.22667 15.8924C10.0269 13.9489 11.2027 12.1824 12.6868 10.6942C14.171 9.206 15.9342 8.02529 17.8755 7.21976C19.8168 6.41424 21.898 5.99973 23.9998 6C26.8081 5.99835 29.5673 6.73644 31.9998 8.14" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>    
+                          </span>
+                          <h2 class="text-xl text-center mb-4">Frequent authentication</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3">
+                      <div class="bg-white py-20 px-8 border-b border-gray-100">
+                          <span class="mb-6 flex justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                                  <path d="M6 40H42V8H6" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M42 8L24 26L6 8" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M8 22H2" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M14 32H2" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                          </span>
+                          <h2 class="text-xl text-center mb-4">Weekly email updates</h2>
+                          <p class="text-gray-500 max-w-xs mx-auto text-center">Take care to develop resources continually and integrity them with previous projects.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+                
+      <section class="py-20" x-data="{ tab: '' }" x-init="tab = $refs.tab1.textContent">
+          <div class="container mx-auto px-4">
+              <div class="flex justify-center mb-6">
+                  <div class="bg-yellow-100 px-2 py-1 text-xs font-bold inline-block">Lorem ipsum</div>
+              </div>
+              <h1 class="font-heading text-center text-4xl lg:text-5xl font-bold max-w-md lg:max-w-xl mx-auto mb-4">Lorem ipsum dolor sit amet consectutar</h1>
+              <p class="text-gray-600 text-center max-w-xl mx-auto mb-6">If you have ever wondered how to develop your brand, this is the place for you. Take a big step forward in growing your business with this great tool.</p>
+              <div class="flex flex-wrap justify-center mb-12">
+                  <a x-ref="tab1" x-on:click.prevent="tab = $refs.tab1.textContent" class="w-full md:w-auto py-4 text-center px-14 font-bold text-sm hover:underline" :class="{'border-b-2 border-green-500': tab == $refs.tab1.textContent, 'text-gray-500': tab != $refs.tab1.textContent}" href="#">Monthly</a>
+                  <a x-ref="tab2" x-on:click.prevent="tab = $refs.tab2.textContent" class="w-full md:w-auto py-4 text-center px-14 font-bold text-sm hover:underline" :class="{'border-b-2 border-green-500': tab == $refs.tab2.textContent, 'text-gray-500': tab != $refs.tab2.textContent}" href="#">Yearly</a>
+              </div>
+              <div class="flex flex-wrap items-center -m-4">
+                  <div class="w-full lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-6">
+                          <p class="text-center text-xl font-bold mb-4">Starter</p>
+                          <h2 :class="{'hidden': tab == $refs.tab2.textContent}" class="font-heading text-green-500 text-center text-5xl font-bold mb-6">$34,99</h2>
+                          <h2 :class="{'hidden': tab == $refs.tab1.textContent}" class="font-heading text-green-500 text-center text-5xl font-bold mb-6">$419,99</h2>
+                          <ul class="mb-6">
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">Complete documentation</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">Working materials in Figma</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">100GB cloud storage</p>
+                              </li>
+                              <li class="flex gap-2 items-center">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">500 team members</p>
+                              </li>
+                          </ul>
+                          <a class="px-6 py-3 block text-center w-full sm:w-auto bg-green-500 text-white text-sm font-bold hover:bg-green-600 focus:ring focus:ring-green-300 transition duration-200" href="#">Start Now</a>
+                      </div>
+                  </div>
+                  <div class="w-full lg:w-1/3 p-4">
+                      <div class="bg-green-500 p-6">
+                          <p class="text-center text-green-300 text-xl font-bold mb-4">Starter</p>
+                          <h2 :class="{'hidden': tab == $refs.tab2.textContent}" class="font-heading text-white text-center text-5xl font-bold mb-6">$65,99</h2>
+                          <h2 :class="{'hidden': tab == $refs.tab1.textContent}" class="font-heading text-white text-center text-5xl font-bold mb-6">$699,99</h2>
+                          <ul class="mb-6">
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-50">Complete documentation</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-50">Working materials in Figma</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-50">100GB cloud storage</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-50">500 team members</p>
+                              </li>
+                              <li class="flex gap-2 items-center">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#99C0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-50">Premium Support</p>
+                              </li>
+                          </ul>
+                          <a class="px-6 py-3 block text-center w-full sm:w-auto bg-white text-sm font-bold hover:bg-gray-100 focus:ring focus:ring-gray-200 transition duration-200" href="#">Start Now</a>
+                      </div>
+                  </div>
+                  <div class="w-full lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-6">
+                          <p class="text-center text-xl font-bold mb-4">Premium</p>
+                          <h2 :class="{'hidden': tab == $refs.tab2.textContent}" class="font-heading text-green-500 text-center text-5xl font-bold mb-6">$99,99</h2>
+                          <h2 :class="{'hidden': tab == $refs.tab1.textContent}" class="font-heading text-green-500 text-center text-5xl font-bold mb-6">$1199,99</h2>
+                          <ul class="mb-6">
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">Complete documentation</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">Working materials in Figma</p>
+                              </li>
+                              <li class="flex gap-2 items-center mb-3">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">100GB cloud storage</p>
+                              </li>
+                              <li class="flex gap-2 items-center">
+                                  <span>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M8 11.5L11 14.5L17 8.5" stroke="#006251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <p class="text-gray-500">500 team members</p>
+                              </li>
+                          </ul>
+                          <a class="px-6 py-3 block text-center w-full sm:w-auto bg-green-500 text-white text-sm font-bold hover:bg-green-600 focus:ring focus:ring-green-300 transition duration-200" href="#">Start Now</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+                
+      <section class="py-20">
+          <div class="container mx-auto px-4">
+              <div class="flex justify-center mb-6">
+                  <div class="bg-yellow-100 px-2 py-1 text-xs font-bold inline-block">Lorem ipsum</div>
+              </div>
+              <h1 class="font-heading text-center text-4xl lg:text-5xl font-bold mb-4 max-w-3xl mx-auto">Lorem ipsum dolor sit amet consectutar</h1>
+              <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">If you have ever wondered how to develop your brand, this is the place for you. Take a big step forward in growing your business with this great tool.</p>
+              <div class="flex flex-wrap -m-4">
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">Ian Brown</h3>
+                          <h3 class="font-bold text-center mb-4">CEO &amp; CTO</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1450297350677-623de575f31c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">Sophie Baialey</h3>
+                          <h3 class="font-bold text-center mb-4">CEO &amp; Founder</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">Dennis Robertson</h3>
+                          <h3 class="font-bold text-center mb-4">Frontend Developer</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1569124589354-615739ae007b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">Sahra Ortiz</h3>
+                          <h3 class="font-bold text-center mb-4">Product Designer</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">John Doe</h3>
+                          <h3 class="font-bold text-center mb-4">Head of Development</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                      <div class="bg-gray-50 p-8">
+                          <img class="mb-6 w-full object-cover h-56" src="https://images.unsplash.com/photo-1606804997644-d014d6703834?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="">
+                          <h3 class="text-green-500 text-xl font-bold text-center mb-1">Daisy Carter</h3>
+                          <h3 class="font-bold text-center mb-4">Product Manager</h3>
+                          <div class="flex items-center justify-center gap-8">
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                              </a>
+                              <a href="#">
+                                  <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+                
+      <section class="py-20">
+          <div class="container mx-auto px-4">
+              <div class="flex justify-center mb-10">
+                  <a href="#" class="inline-block">
+                      <img src="cronos-assets/logos/cronos-logo.svg" alt="">
+                  </a>
+              </div>
+              <ul class="flex flex-wrap justify-center mb-10">
+                  <li class="mb-4 lg:mb-0 mr-6 md:mr-12"><a class="text-sm font-bold text-black" href="#">About</a></li>
+                  <li class="mb-4 lg:mb-0 mr-6 md:mr-12"><a class="text-sm font-bold text-black" href="#">Company</a></li>
+                  <li class="mb-4 lg:mb-0 mr-6 md:mr-12"><a class="text-sm font-bold text-black" href="#">Services</a></li>
+                  <li><a class="text-sm font-bold text-black" href="#">Testimonials</a></li>
+              </ul>
+              <ul class="flex items-center justify-center gap-8 mb-10">
+                  <li>
+                      <a class="inline-block" href="#">
+                          <img src="cronos-assets/logos/brands/facebook.svg" alt="">
+                      </a>
+                  </li>
+                  <li>
+                      <a class="inline-block" href="#">
+                          <img src="cronos-assets/logos/brands/twitter.svg" alt="">
+                      </a>
+                  </li>
+                  <li>
+                      <a class="inline-block" href="#">
+                          <img src="cronos-assets/logos/brands/Instagram.svg" alt="">
+                      </a>
+                  </li>
+                  <li>
+                      <a class="inline-block" href="#">
+                          <img src="cronos-assets/logos/brands/github.svg" alt="">
+                      </a>
+                  </li>
+                  <li>
+                      <a class="inline-block" href="#">
+                          <img src="cronos-assets/logos/brands/LinkedIn.svg" alt="">
+                      </a>
+                  </li>
+              </ul>
+              <p class="text-gray-500 text-center text-sm">All rights reserved © Cronos 2020</p>
+          </div>
+      </section>
+                
+      <section class="py-20 lg:py-0 relative overflow-hidden">
+          <div class="lg:w-1/2 absolute hidden lg:flex top-0 right-0 justify-center items-center object-cover h-full">
+              <img class="w-full object-contain" style="max-height: 380px;" src="cronos-assets/images/example-scene2.png" alt="">
+          </div>
+          <div class="py-6 lg:hidden">
+              <img class="mx-auto block w-full object-contain" style="max-height: 360px;" src="cronos-assets/images/example-scene2.png" alt="">
+          </div>
+          <div class="container mx-auto px-4">
+              <div class="flex flex-wrap -m-4">
+                  
+              </div>
+          </div>
+      </section>
+    </div>
+</body>
+</html>
+
